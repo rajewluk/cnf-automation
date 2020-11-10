@@ -3,6 +3,7 @@ import os
 from uuid import uuid4
 
 from config import Config
+from k8s_client import K8sClient
 from so_db_adapter import SoDBAdapter
 from onapsdk.aai.business import Customer
 from onapsdk.aai.cloud_infrastructure import Complex, CloudRegion
@@ -82,6 +83,11 @@ except:
                                                 cloud_owner=Config.CLOUD_OWNER,
                                                 kubeconfig=kubeconfig)
     logger.info("Connectivity Info created ")
+
+#### Add Custom Resource Definitions ####
+k8s_client = K8sClient(kubeconfig_path=Config.CLUSTER_KUBECONFIG_PATH)
+for crd in Config.CUSTOMER_RESOURCE_DEFINITIONS:
+    k8s_client.create_custom_object(crd)
 
 #### Create customer if not exists ####
 logger.info("******** Customer *******")
