@@ -125,6 +125,8 @@ for vnf in service.vnfs:
         definition = Definition.get_definition_by_name_version(vf_module.metadata["vfModuleModelInvariantUUID"],
                                                                vf_module.metadata["vfModuleModelUUID"])
         vf_module_label = vf_module.properties["vf_module_label"]
+        if vf_module_label == "base_template_dummy_ignore":
+            continue
         profile_name = Config.VF_MODULE_LIST[vf_module_label]["k8s-rb-profile-name"]
         try:
             profile = definition.get_profile_by_name(profile_name)
