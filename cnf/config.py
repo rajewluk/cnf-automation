@@ -24,7 +24,7 @@ class Config:
     SERVICENAME = "native_vfw_k8s_demo_CNF_fixed"
     VSPNAME = "VSP_" + SERVICENAME
     VFNAME = "VF_" + SERVICENAME
-    SERVICE_INSTANCE_NAME = "INSTANCE_" + SERVICENAME + str(uuid4())
+    SERVICE_INSTANCE_NAME = "INSTANCE_" + SERVICENAME
     SDNC_ARTIFACT_NAME = "vnf"
     VF_MODULE_PREFIX = ""
     if NATIVE:
