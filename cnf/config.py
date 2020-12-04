@@ -1,6 +1,3 @@
-from uuid import uuid4
-
-
 class Config:
     #### REGION DETAILS ####
     NATIVE = True
